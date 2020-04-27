@@ -1,33 +1,31 @@
-package com.lindemberg.unipe.web.domain;
+package com.lindemberg.unipe.web.service.dto;
 
 import java.time.Instant;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.lindemberg.unipe.web.domain.Task;
 
-@Entity
-public class Task {
+public class TaskDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private int id;
 	private String title;
 	private String description;
 	private Long taskPoints;
 	private Instant startDate;
 	private Instant endDate;
-	private Long Status;
+	
+	public TaskDTO (Task task) {
+		setId(task.getId());
+		setTitle(task.getTitle());
+		setDescription(task.getDescription());
+		setTaskPoints(task.getTaskPoints());
+		setStartDate(task.getStartDate());
+		setEndDate(task.getEndDate());
+	}
 	
 	
-
-	public Long getStatus() {
-		return Status;
-	}
-	public void setStatus(Long status) {
-		Status = status;
-	}
+	
+	
 	public int getId() {
 		return id;
 	}
